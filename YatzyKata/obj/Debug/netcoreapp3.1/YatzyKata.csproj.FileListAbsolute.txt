@@ -1,0 +1,16 @@
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csprojAssemblyReference.cache
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.AssemblyInfoInputs.cache
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.AssemblyInfo.cs
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csproj.CoreCompileInputs.cache
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.deps.json
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.runtimeconfig.json
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.runtimeconfig.dev.json
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.dll
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.pdb
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.dll
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.pdb
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.genruntimeconfig.cache
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/xunit.abstractions.dll
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/xunit.core.dll
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csproj.CopyComplete
+/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/bin/Debug/netcoreapp3.1/xunit.assert.dll

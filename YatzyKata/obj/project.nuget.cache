@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "MEV7CJhJklMHPYQiMRa+ZN3GlhyHfZBXE4sfs9rGYLf9mHhQPIQuQiWtob7URmWAyvDeoucpQe/31O0ooPc3Tw==",
+  "success": true,
+  "projectFilePath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+  "expectedPackageFiles": [
+    "/Users/Mona.Jena/.nuget/packages/xunit.abstractions/2.0.2/xunit.abstractions.2.0.2.nupkg.sha512",
+    "/Users/Mona.Jena/.nuget/packages/xunit.assert/2.4.0/xunit.assert.2.4.0.nupkg.sha512",
+    "/Users/Mona.Jena/.nuget/packages/xunit.extensibility.core/2.4.0/xunit.extensibility.core.2.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
