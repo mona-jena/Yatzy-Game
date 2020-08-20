@@ -52,7 +52,7 @@ namespace YatzyKata
 
         public int[] KeepNum(List<int> dices, int[] heldNumbers)
         {
-            
+            return;
         }
     }
 
