@@ -9,9 +9,7 @@ namespace YatzyUnitTests
         [Fact]
         public void TestToSeeIfFiveNumbersGenerated()
         {
-            List<int> testNumbers = new List<int>();
-            int[] array = new int[] {3, 4, 5, 5, 2};
-            testNumbers.AddRange(array);
+            List<int> testNumbers = new List<int>() {3, 4, 5, 5, 2};
             int expected = 5;
             YatzyGame player = new YatzyGame();
             int result = player.RollDice(testNumbers).Count;
@@ -21,14 +19,13 @@ namespace YatzyUnitTests
         [Fact]
         public void TestToSeeIfCalculateSumReturnsSum()
         {
-            List<int> testNumbers = new List<int>();
-            int[] array = new int[] {3, 4, 5, 5, 2};
-            testNumbers.AddRange(array);
+            List<int> testNumbers = new List<int>() {3, 4, 5, 5, 2};
             int expected = 19;
             YatzyGame player = new YatzyGame();
             int result = player.CalculateSum(testNumbers);
             Assert.Equal(expected, result);
         }
+
 
         [Fact]
         public void TestIfKeepNumKeepsNumbersOnlySpecifiedByUser()
@@ -42,6 +39,7 @@ namespace YatzyUnitTests
             int[] result = player.KeepNum(testNumbers, heldNumbers);
             Assert.Equal(expected, result);
         }
+        
     }
-    
-}
+ 
+    }

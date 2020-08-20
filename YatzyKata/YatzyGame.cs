@@ -5,15 +5,21 @@ namespace YatzyKata
 {
     public class YatzyGame
     {
-        public static void Main(string[] args)
+        public YatzyGame()
         {
-            YatzyGame player = new YatzyGame();
-            //int result = player.RollDice(args);
 
-            //List<int> rolledNum = dice.RollDice();
-        }
+        private ConsoleActions console = new ConsoleActions();
+    }
 
-        public List<int> RollDice(List<int> args)
+    public static void Main(string[] args)
+    {
+    YatzyGame player = new YatzyGame();
+    //int result = player.RollDice(args);
+
+    //List<int> rolledNum = dice.RollDice();
+    }
+
+    public List<int> RollDice(List<int> args)
         {
             List<int> dices = new List<int>();
             for (int i = 0; i < 5; i++)
@@ -37,30 +43,54 @@ namespace YatzyKata
             int sum = 0;
             foreach (int item in dices)
             {
-                sum += item;˚
+                sum += item;
             }
-            Console.Write("Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
-            string heldNumbers= Console.ReadLine();
-            string[] eachNumToKeep = heldNumbers.Split(",");
-            foreach (string i in eachNumToKeep)
-            {
-                var stringToNum = int.Parse(eachNumToKeep[i]);
-            }
-;           KeepNum(dices, eachIndexToKeep);
+
+            // int[] heldNumbers = new int[] { }1, 2, 3, 4, 5};
+            // int[] numbersKept = KeepNum(dices, heldNumbers);
             return sum;
         }
 
-        public int[] KeepNum(List<int> dices, int[] heldNumbers)
+        public interface IConsole
         {
-            return;
+            public void ReadLine();
+            public void Write(string message);
         }
-    }
 
-    // public class RollDice()
-    // {
-    //     static Random rand = new Random();
-    //     int rolledNumber = rand.Next(1,7);
-    //     return rolledNumber;
+        public class ConsoleActions : IConsole
+        {
+            public void ReadLine()
+            {
+                Console.ReadLine();
+            }
+
+            public void Write(string message)
+            {
+                Console.WriteLine(message);
+            }
+        }
+
+
+        public int[] KeepNum(List<int> dices)
+        {
+            
+            Console.Write("Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
+            string heldNumbers= Console.ReadLine();
+            string[] eachNumToKeep = heldNumbers.Split(",");
+            int number;
+            foreach (string i in eachNumToKeep)
+            {
+                bool stringToNum = TryParse(eachNumToKeep[i], out number); ///int.Parse(eachNumToKeep.IndexOf(i));
+            }
+        }
+    
+
+        // public class RollDice()
+        // {
+        //     static Random rand = new Random();
+        //     int rolledNumber = rand.Next(1,7);
+        //     return rolledNumber;
+    
 }
 
    
