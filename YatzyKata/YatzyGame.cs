@@ -3,21 +3,20 @@ using System.Collections.Generic;
 
 namespace YatzyKata
 {
-    public static void Main(string[] args)
-    {
-    YatzyGame player = new YatzyGame(new ConsoleActions());
-    //int result = player.RollDice(args);
-
-    //List<int> rolledNum = dice.RollDice();
-    }
 
     public class YatzyGame
     {
-        IConsole newConsole; //IConsole is
+        public static void Main(string[] args)
+        {
+            YatzyGame player = new YatzyGame(new ConsoleActions());
+        }
+
+        
+        IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
 
         public YatzyGame(IConsole console)
         {
-            newConsole = console;
+            _newConsole = console;
         }
 
         public List<int> RollDice(List<int> args)
@@ -52,32 +51,29 @@ namespace YatzyKata
             return sum;
         }
 
-        
-
-
-        public int[] KeepNum(List<int> dices)
+        public string[] KeepNum(List<int> dices)
         {
-            Console.Write(
+            _newConsole.Write(
                 "Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
-            string heldNumbers = Console.ReadLine();
+            string heldNumbers = _newConsole.ReadLine();
+            // handle no commas
             string[] eachNumToKeep = heldNumbers.Split(",");
-
-            int number;
-            foreach (string i in eachNumToKeep)
-            {
-                bool stringToNum = TryParse(eachNumToKeep[i], out number); ///int.Parse(eachNumToKeep.IndexOf(i));
-            }
+            return eachNumToKeep;
         }
 
+        public void GetIndexesToKeep(string[] eachNumToKeep){
+            int number;
+            foreach (string i in eachNumToKeep) 
+            {
+         //       bool stringToNum = Int32.TryParse(eachNumToKeep[i], out number); ///int.Parse(eachNumToKeep.IndexOf(i));
+            }
 
-        // public class RollDice()
-        // {
-        //     static Random rand = new Random();
-        //     int rolledNumber = rand.Next(1,7);
-        //     return rolledNumber;
+       
+        }
     }
-    
-    //Interfaces don't need a class
+
+
+//Interfaces don't need a class
     public interface IConsole
     {
         public string ReadLine();
@@ -98,5 +94,3 @@ namespace YatzyKata
         }
     }
 }
-
-   
