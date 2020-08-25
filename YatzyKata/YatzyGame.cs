@@ -9,14 +9,18 @@ namespace YatzyKata
         public static void Main(string[] args)
         {
             YatzyGame player = new YatzyGame(new ConsoleActions());
+           
+            
+            
+            
         }
 
-        
         IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
 
         public YatzyGame(IConsole console)
         {
             _newConsole = console;
+            RollDice();
         }
 
         public List<int> RollDice(List<int> args)
@@ -34,7 +38,6 @@ namespace YatzyKata
             {
                 Console.Write(i);
             }
-
             return dices;
         }
 
@@ -61,19 +64,23 @@ namespace YatzyKata
             return eachNumToKeep;
         }
 
-        public int[] GetIndexesToKeep(string[] eachNumToKeep){
-            int[] userInputToInt = {};
+        public List<int> GetIndexesToKeep(string[] eachNumToKeep)
+        {
+            List<int> userInputToInt = new List<int>();;
             int number = 0;
-            for(int i = 0; i < eachNumToKeep.Length; i++)
+            for (int i = 0; i < eachNumToKeep.Length; i++)
             {
                 bool stringToNum = Int32.TryParse(eachNumToKeep[i], out number);
                 if (stringToNum)
                 {
-                    userInputToInt[i] = number;
+                    userInputToInt.Add(number);
                 }
             }
             return userInputToInt;
         }
+        
+        
+        
     }
 
 
