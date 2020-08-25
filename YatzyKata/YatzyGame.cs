@@ -61,14 +61,18 @@ namespace YatzyKata
             return eachNumToKeep;
         }
 
-        public void GetIndexesToKeep(string[] eachNumToKeep){
-            int number;
-            foreach (string i in eachNumToKeep) 
+        public int[] GetIndexesToKeep(string[] eachNumToKeep){
+            int[] userInputToInt = {};
+            int number = 0;
+            for(int i = 0; i < eachNumToKeep.Length; i++)
             {
-         //       bool stringToNum = Int32.TryParse(eachNumToKeep[i], out number); ///int.Parse(eachNumToKeep.IndexOf(i));
+                bool stringToNum = Int32.TryParse(eachNumToKeep[i], out number);
+                if (stringToNum)
+                {
+                    userInputToInt[i] = number;
+                }
             }
-
-       
+            return userInputToInt;
         }
     }
 
