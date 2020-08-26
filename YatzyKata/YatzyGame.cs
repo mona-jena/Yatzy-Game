@@ -19,6 +19,7 @@ namespace YatzyKata
             List<int> firstFiveNumbers = player.GenerateFiveNumbers();
             string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
             List<int> keepIndexed = player.IndexesToKeepAsInt(userSpecifiedIndexes);
+            //new list
         }
 
         
@@ -35,10 +36,10 @@ namespace YatzyKata
                 int newNum = _randomNumberGenerator.Next(1, 7);
                 dices.Add(newNum);
             }
-            foreach (int i in dices)
-            {
-                Console.WriteLine(i); 
-            }
+            // foreach (int i in dices)
+            // {
+            //     Console.WriteLine(i); 
+            // }
             return dices;
         }
 
@@ -51,6 +52,7 @@ namespace YatzyKata
             string[] eachNumToKeep = heldNumbers.Split(",");
             // GetIndexesToKeep(eachNumToKeep);
             return eachNumToKeep;
+            
         }
 
         public List<int> IndexesToKeepAsInt(string[] eachNumToKeep)
@@ -71,10 +73,13 @@ namespace YatzyKata
         
         public void KeepIndexesSpecifiedByUser(List<int> userInputToInt)
         {
+            List<int> listWithUserSpecifiedIndexes = new List<int>();
             foreach (int i in userInputToInt)
             {
-                
+
             }
+            
+            
         }
         
         
