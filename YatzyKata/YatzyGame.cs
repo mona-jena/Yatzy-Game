@@ -6,21 +6,24 @@ namespace YatzyKata
 
     public class YatzyGame
     {
+        IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
+        private IRandom _randomNumberGenerator;
+        
         public static void Main(string[] args)
         {
             //YatzyGame player = new YatzyGame(new ConsoleActions());
             IConsole consoleActions = new ConsoleActions();
-            YatzyGame player = new YatzyGame(consoleActions);
+            IRandom random = new Rng();
+            YatzyGame player = new YatzyGame(consoleActions, random);
 
             List<int> firstFiveNumbers = player.GenerateFiveNumbers();
             string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
             List<int> keepIndexed = player.IndexesToKeepAsInt(userSpecifiedIndexes);
         }
 
-        IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
-
-        public YatzyGame(IConsole console)
-        {
+        
+        public YatzyGame(IConsole console, IRandom randomNumberGenerator) {
+            _randomNumberGenerator = randomNumberGenerator;
             _newConsole = console;
         }
 
@@ -29,13 +32,12 @@ namespace YatzyKata
             List<int> dices = new List<int>();
             for (int i = 0; i < 5; i++)
             {
-                Random rolledNumbers = new Random();
-                int randomNum = rolledNumbers.Next(1, 7);
-                dices.Add(randomNum);
+                int newNum = _randomNumberGenerator.Next(1, 7);
+                dices.Add(newNum);
             }
             foreach (int i in dices)
             {
-                Console.WriteLine(dices[i]); 
+                Console.WriteLine(i); 
             }
             return dices;
         }
@@ -121,4 +123,23 @@ namespace YatzyKata
             Console.WriteLine(message);
         }
     }
+    
+    
+    public interface IRandom
+    {
+        public int Next(int min, int max);
+    }
+
+    public class Rng : IRandom
+    {
+        private Random _randomNumberGenerator; //Random class needs an object
+        public Rng(){ 
+            _randomNumberGenerator = new Random();
+        }
+        public int Next(int min, int max)
+        {
+            return _randomNumberGenerator.Next(min, max);
+        }
+    }
+    
 }
