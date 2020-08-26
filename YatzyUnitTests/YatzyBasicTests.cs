@@ -16,7 +16,7 @@ namespace YatzyUnitTests
             List<int> testNumbers = new List<int>() {3, 4, 5, 5, 2};
             int expected = 5;
             YatzyGame player = new YatzyGame(consoleActionsMock.Object);
-            int result = player.RollDice(testNumbers).Count;
+            int result = player.CalculateSum(testNumbers);
             Assert.Equal(expected, result);
         }
 
@@ -48,7 +48,6 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
 
-        
         [Fact]
         public void TestIfGetIndexesToKeepReturnsKeepNumAsInt()
         {
@@ -60,7 +59,15 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
         
-        
+        [Fact]
+        public void TestIfIndexesNotSpecifiedByUserIsRemoved()
+        {
+            string[] eachNumToKeep = {"1", "2", "3"};
+            int[] expected = {1,2,3};
+            YatzyGame player = new YatzyGame(consoleActionsMock.Object);
+            List<int> result = player.GetIndexesToKeep(eachNumToKeep);
+            Assert.Equal(expected, result);
+        }
        
         
     }
