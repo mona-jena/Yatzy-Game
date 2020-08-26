@@ -16,10 +16,10 @@ namespace YatzyKata
             IRandom random = new Rng();
             YatzyGame player = new YatzyGame(consoleActions, random);
 
-            List<int> firstFiveNumbers = player.GenerateFiveNumbers();
+            List<int> fiveNumbers = player.GenerateFiveNumbers();
             string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
-            List<int> keepIndexed = player.IndexesToKeepAsInt(userSpecifiedIndexes);
-            //new list
+            List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
+            List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
         }
 
         
@@ -49,8 +49,8 @@ namespace YatzyKata
                 "Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
             string heldNumbers = _newConsole.ReadLine();
             // handle no commas
-            string[] eachNumToKeep = heldNumbers.Split(",");
             // GetIndexesToKeep(eachNumToKeep);
+            string[] eachNumToKeep = heldNumbers.Split(",");
             return eachNumToKeep;
             
         }
@@ -71,15 +71,16 @@ namespace YatzyKata
             return userInputToInt;
         }
         
-        public void KeepIndexesSpecifiedByUser(List<int> userInputToInt)
+        public List<int> KeepIndexesSpecifiedByUser(List<int> userInputToInt, List<int> fiveNumbers)
         {
-            List<int> listWithUserSpecifiedIndexes = new List<int>();
+            List<int> userPreferredList = new List<int>() {0,0,0,0,0};
             foreach (int i in userInputToInt)
             {
-
+                userPreferredList[
+                    userPreferredList.FindIndex((ind => ind.Equals(0)))] = fiveNumbers[i-1];
             }
             
-            
+            return userPreferredList;
         }
         
         

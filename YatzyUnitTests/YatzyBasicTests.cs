@@ -65,10 +65,11 @@ namespace YatzyUnitTests
         [Fact]
         public void TestIfIndexesNotSpecifiedByUserIsRemoved()
         {
-            string[] eachNumToKeep = {"1", "2", "3"};
-            int[] expected = {1,2,3};
-            YatzyGame player = new YatzyGame(consoleActionsMock.Object);
-            List<int> result = player.GetIndexesToKeep(eachNumToKeep);
+            List<int> eachNumToKeepAsInt = new List<int>() {1, 2, 3};
+            List<int> testOfFiveNumbers = new List<int>() {3, 4, 5, 5, 2};
+            int[] expected = {3, 4, 5, 0, 0};
+            YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
+            List<int> result = player.KeepIndexesSpecifiedByUser(eachNumToKeepAsInt, testOfFiveNumbers);
             Assert.Equal(expected, result);
         }
        
