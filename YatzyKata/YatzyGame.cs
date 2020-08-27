@@ -124,7 +124,7 @@ namespace YatzyKata
             return eachNumToKeep;
         }
 
-        public List<int> IndexesToKeepAsInt(string[] each NumToKeep)
+        public List<int> IndexesToKeepAsInt(string[] eachNumToKeep)
         {
             List<int> userInputToInt = new List<int>();;
             int number = 0;
