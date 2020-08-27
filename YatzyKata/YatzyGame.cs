@@ -10,7 +10,7 @@ namespace YatzyKata
         IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
         private IRandom _randomNumberGenerator;
         
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
             //YatzyGame player = new YatzyGame(new ConsoleActions());
             IConsole consoleActions = new ConsoleActions();
@@ -27,14 +27,20 @@ namespace YatzyKata
             Console.WriteLine("Would you like to re-roll (Y/N)?");
             string userOption = Console.ReadLine();
             List<int> indexesNotRolled = new List<int>();
-            List<int> rerolledList = new List<int>();
+            //List<int> rerolledList = new List<int>();
+            int totalScore = 0;
             if (userOption == "Y")
             {
                 indexesNotRolled = player.DetermineIndexesNotKept(newList);
-                
-                rerolledList = player.RollDice(newList, indexesNotRolled);
+                newList = player.RollDice(newList, indexesNotRolled);
             }
-                
+            
+            else
+            {
+                totalScore = player.CalculateSum(newList);
+            }
+
+            return totalScore;
             //     Determine which indexes not selected
             //     Go to RollDice(specific index, newList);
             // else:
@@ -125,16 +131,14 @@ namespace YatzyKata
         
         public List<int> RollDice(List<int> newList, List<int> indexesNotRolled)
         {
-            /*List<int> dices = new List<int>();
-            Random rolledNumbers = new Random();
-            int randomNum = rolledNumbers.Next();
-            dices.Add(randomNum);
-            return dices;*/
-            return new List<int>();
+            List<int> rerolledList = newList;
+            foreach (int i in indexesNotRolled)
+            {
+                int newNum = _randomNumberGenerator.Next();
+                newList[i] = newNum;
+            }
+            return rerolledList;
         }
-
-        
-        
         
         public int CalculateSum(List<int> dices)
         {
