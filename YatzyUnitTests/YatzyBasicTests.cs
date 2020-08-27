@@ -61,6 +61,12 @@ namespace YatzyUnitTests
             List<int> result = player.KeepIndexesSpecifiedByUser(eachNumToKeepAsInt, testOfFiveNumbers);
             Assert.Equal(expected, result);
         }
+
+        public void TestIfDetermineIndexesNotKeptReturnsCorrectList()
+        {
+            List<int> testList = new List<int>() {0, 3, 0, 0, 6};
+            
+        }
         
         
         

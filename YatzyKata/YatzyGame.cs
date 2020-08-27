@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace YatzyKata
 {
@@ -17,34 +18,35 @@ namespace YatzyKata
             YatzyGame player = new YatzyGame(consoleActions, random);
 
             List<int> fiveNumbers = player.GenerateFiveNumbers();
-            Console.Write("(");
-            foreach (var i in (fiveNumbers))
-            {
-                Console.Write($"{i},");
-            }
-            Console.WriteLine(")");
+            PrintList(fiveNumbers);
             string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
             List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
             List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
+            PrintList(newList);
+            //CHECK IF USER HAS CALLED THIS ^^ METHOD 3 TIMES ONLY
+            Console.WriteLine("Would you like to re-roll (Y/N)?");
+            
+            /*if "Y":
+                Determine which indexes not selected
+                Go to RollDice(specific index, newList);
+            else:
+                Go to CalculateSum(newList);*/
+                
+            
+        }
+
+        private static void PrintList(List<int> listToPrint)
+        {
             Console.Write("(");
-            for(int i=0; i < newList.Count ; i++)
+            for(int i=0; i < listToPrint.Count ; i++)
             {
-                Console.Write(newList[i]);
-                if (i != newList.Count-1)
+                Console.Write(listToPrint[i]);
+                if (i != listToPrint.Count-1)
                 {
                     Console.Write(",");
                 }
             }
             Console.WriteLine(")");
-            //CHECK IF USER HAS CALLED THIS ^^ METHOD 3 TIMES ONLY
-            Console.WriteLine("Would you like to re-roll (Y/N)?");
-            if "Y":
-                Determine 
-                Go to RollDice(specific index, newList);
-            else:
-                Go to CalculateSum(newList);
-                
-            List<int> reroll = RollDice(List<int> );
         }
 
         
@@ -105,7 +107,11 @@ namespace YatzyKata
             }
             return userPreferredList;
         }
-        
+
+        public void DetermineIndexesNotKept(List<int> newList)
+        {
+            
+        }
         
         
         
