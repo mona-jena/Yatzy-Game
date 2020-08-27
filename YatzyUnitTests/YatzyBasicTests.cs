@@ -100,7 +100,16 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
 
-        
+        [Fact]
+        public void TestToAfterReRollMakesAUnionOfTwoLists()
+        {
+            List<int> newList = new List<int>() {0, 4, 0, 5, 0};
+            List<int> reRolledNumbers = new List<int>() {3, 0, 5, 0, 2};
+            List<int> expected = new List<int>() {3, 4, 5, 5, 2};
+            YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
+            List<int> result = player.AfterReRoll(newList, reRolledNumbers);
+            Assert.Equal(expected, result);
+        }
 
     }
 

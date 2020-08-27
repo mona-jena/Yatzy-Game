@@ -23,32 +23,29 @@ namespace YatzyKata
             List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
             List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
             PrintList(newList);
-            //CHECK IF USER HAS CALLED THIS ^^ METHOD 3 TIMES ONLY
             
-            // Console.WriteLine("Would you like to re-roll (Y/N)?");
-            // string userOption = Console.ReadLine();
             List<int> indexesNotRolled = new List<int>();
             List<int> reRolledNumbers = new List<int>();
-            
             int totalScore = 0;
-            int noOfTimesRolled = 0;
-            while (noOfTimesRolled < 3)
+            int noOfTimesReRolled = 0;
+            while (noOfTimesReRolled < 3)
             {
                 Console.WriteLine("Would you like to re-roll (Y/N)?");
                 string userOption = Console.ReadLine();
                 if (userOption == "Y")
                 {
-                    if (noOfTimesRolled > 0)
+                    if (noOfTimesReRolled > 0)
                     {
                         userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
                         keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
                         newList = player.KeepIndexesSpecifiedByUser(keepIndexes, newList);
                     }
                     indexesNotRolled = player.DetermineIndexesNotKept(newList);
+                    //ADD ==> only allow user to pick the indexes not yet kept --> maybe give user option from indexesNotRolled??
                     reRolledNumbers = player.RollDice(newList, indexesNotRolled);
-                    List<int> afterRerolled = player.AfterReroll(newList, reRolledNumbers);
+                    List<int> afterRerolled = player.AfterReRoll(newList, reRolledNumbers);
                     PrintList(afterRerolled);
-                    noOfTimesRolled++;
+                    noOfTimesReRolled++;
                 }
                 else
                 {
@@ -56,32 +53,31 @@ namespace YatzyKata
                 }
             }
             totalScore = player.CalculateSum(newList);
-            Console.WriteLine(totalScore);
+            Console.WriteLine("Your Score: " + totalScore);
         }
         
-        public List<int> AfterReroll(List<int> newList, List<int> reRolledNumbers)
+        public List<int> AfterReRoll(List<int> newList, List<int> reRolledNumbers)
         {
             List<int> afterRerolled = new List<int>() {0,0,0,0,0};
-            for(int i = 0; i < newList.Count; i++)
+            for (int i = 0; i < afterRerolled.Count; i++)
             {
                 if (newList[i] != 0)
                 {
                     afterRerolled[i] = newList[i];
                 }
-            }
-            for(int i = 0; i < reRolledNumbers.Count; i++)
-            {
+
                 if (reRolledNumbers[i] != 0)
                 {
                     afterRerolled[i] = reRolledNumbers[i];
                 }
             }
+
             return afterRerolled;
         }
 
         private static void PrintList(List<int> listToPrint)
         {
-            Console.Write("(");
+            Console.Write("Current List: (");
             for(int i=0; i < listToPrint.Count ; i++)
             {
                 Console.Write(listToPrint[i]);
@@ -92,7 +88,6 @@ namespace YatzyKata
             }
             Console.WriteLine(")");
         }
-
         
         public YatzyGame(IConsole console, IRandom randomNumberGenerator) {
             _randomNumberGenerator = randomNumberGenerator;
