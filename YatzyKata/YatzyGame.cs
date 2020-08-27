@@ -17,9 +17,34 @@ namespace YatzyKata
             YatzyGame player = new YatzyGame(consoleActions, random);
 
             List<int> fiveNumbers = player.GenerateFiveNumbers();
+            Console.Write("(");
+            foreach (var i in (fiveNumbers))
+            {
+                Console.Write($"{i},");
+            }
+            Console.WriteLine(")");
             string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
             List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
             List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
+            Console.Write("(");
+            for(int i=0; i < newList.Count ; i++)
+            {
+                Console.Write(newList[i]);
+                if (i != newList.Count-1)
+                {
+                    Console.Write(",");
+                }
+            }
+            Console.WriteLine(")");
+            //CHECK IF USER HAS CALLED THIS ^^ METHOD 3 TIMES ONLY
+            Console.WriteLine("Would you like to re-roll (Y/N)?");
+            if "Y":
+                Determine 
+                Go to RollDice(specific index, newList);
+            else:
+                Go to CalculateSum(newList);
+                
+            List<int> reroll = RollDice(List<int> );
         }
 
         
@@ -76,10 +101,8 @@ namespace YatzyKata
             List<int> userPreferredList = new List<int>() {0,0,0,0,0};
             foreach (int i in userInputToInt)
             {
-                userPreferredList[
-                    userPreferredList.FindIndex((ind => ind.Equals(0)))] = fiveNumbers[i-1];
+                userPreferredList[i-1] = fiveNumbers[i-1];
             }
-            
             return userPreferredList;
         }
         
@@ -138,7 +161,7 @@ namespace YatzyKata
 
     public class Rng : IRandom
     {
-        private Random _randomNumberGenerator; //Random class needs an object
+        private Random _randomNumberGenerator; //Random class needs an object - declared here so that Next() can access it too 
         public Rng(){ 
             _randomNumberGenerator = new Random();
         }

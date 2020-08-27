@@ -49,6 +49,24 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
         
+        [Fact]
+        public void TestIfIndexesNotSpecifiedByUserIsRemoved()
+        {
+            
+            //MORE TEST CASES
+            List<int> eachNumToKeepAsInt = new List<int>() {1, 2, 3};
+            List<int> testOfFiveNumbers = new List<int>() {3, 4, 5, 5, 2};
+            int[] expected = {3, 4, 5, 0, 0};
+            YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
+            List<int> result = player.KeepIndexesSpecifiedByUser(eachNumToKeepAsInt, testOfFiveNumbers);
+            Assert.Equal(expected, result);
+        }
+        
+        
+        
+        
+        
+        
         
         [Fact]
         public void TestToSeeIfCalculateSumReturnsSum()
@@ -62,18 +80,6 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
 
-        [Fact]
-        public void TestIfIndexesNotSpecifiedByUserIsRemoved()
-        {
-            List<int> eachNumToKeepAsInt = new List<int>() {1, 2, 3};
-            List<int> testOfFiveNumbers = new List<int>() {3, 4, 5, 5, 2};
-            int[] expected = {3, 4, 5, 0, 0};
-            YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
-            List<int> result = player.KeepIndexesSpecifiedByUser(eachNumToKeepAsInt, testOfFiveNumbers);
-            Assert.Equal(expected, result);
-        }
-       
-        
     }
 
 
