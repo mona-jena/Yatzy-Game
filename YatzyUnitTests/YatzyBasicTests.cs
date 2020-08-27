@@ -62,15 +62,33 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
 
+        [Fact]
         public void TestIfDetermineIndexesNotKeptReturnsCorrectList()
         {
             List<int> testList = new List<int>() {0, 3, 0, 0, 6};
-            
+            List<int> expected = new List<int>() {0, 2, 3};
+            YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
+            List<int> result = player.DetermineIndexesNotKept(testList);
+            Assert.Equal(expected, result);
         }
         
-        
-        
-        
+        [Fact]
+        public void TestIfRollDicesReplacesNonUsedIndexes()
+        {
+            var consoleActionsMock = new Mock<IRandom>();
+            consoleActionsMock.SetupSequence(s => s.Next())
+                .Returns(1)
+                .Returns(4)
+                .Returns(4);
+            
+            List<int> testList = new List<int>() {0, 3, 0, 0, 6};
+            List<int> indexesNotRolled = new List<int> {0, 3, 2};
+            List<int> expected = new List<int>() {1, 3, 4, 4, 6};
+            
+            YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
+            List<int> result = player.RollDice(testList, indexesNotRolled);
+            Assert.Equal(expected, result);
+        }
         
         
         

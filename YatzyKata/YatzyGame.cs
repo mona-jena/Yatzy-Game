@@ -25,14 +25,21 @@ namespace YatzyKata
             PrintList(newList);
             //CHECK IF USER HAS CALLED THIS ^^ METHOD 3 TIMES ONLY
             Console.WriteLine("Would you like to re-roll (Y/N)?");
-            
-            /*if "Y":
-                Determine which indexes not selected
-                Go to RollDice(specific index, newList);
-            else:
-                Go to CalculateSum(newList);*/
+            string userOption = Console.ReadLine();
+            List<int> indexesNotRolled = new List<int>();
+            List<int> rerolledList = new List<int>();
+            if (userOption == "Y")
+            {
+                indexesNotRolled = player.DetermineIndexesNotKept(newList);
                 
-            
+                rerolledList = player.RollDice(newList, indexesNotRolled);
+            }
+                
+            //     Determine which indexes not selected
+            //     Go to RollDice(specific index, newList);
+            // else:
+            //     Go to CalculateSum(newList);
+
         }
 
         private static void PrintList(List<int> listToPrint)
@@ -60,13 +67,9 @@ namespace YatzyKata
             List<int> dices = new List<int>();
             for (int i = 0; i < 5; i++)
             {
-                int newNum = _randomNumberGenerator.Next(1, 7);
+                int newNum = _randomNumberGenerator.Next();
                 dices.Add(newNum);
             }
-            // foreach (int i in dices)
-            // {
-            //     Console.WriteLine(i); 
-            // }
             return dices;
         }
 
@@ -76,7 +79,6 @@ namespace YatzyKata
                 "Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
             string heldNumbers = _newConsole.ReadLine();
             // handle no commas
-            // GetIndexesToKeep(eachNumToKeep);
             string[] eachNumToKeep = heldNumbers.Split(",");
             return eachNumToKeep;
             
@@ -94,7 +96,6 @@ namespace YatzyKata
                     userInputToInt.Add(number);
                 }
             }
-            // KeepIndexesSpecifiedByUser(userInputToInt);
             return userInputToInt;
         }
         
@@ -108,23 +109,33 @@ namespace YatzyKata
             return userPreferredList;
         }
 
-        public void DetermineIndexesNotKept(List<int> newList)
+        public List<int> DetermineIndexesNotKept(List<int> newList)
         {
-            
+            List<int> indexesNotUsed = new List<int>();
+            for(int i = 0; i < newList.Count; i++)
+            {
+                if (newList[i] == 0)
+                {
+                    indexesNotUsed.Add(i);
+                }
+            }
+            return indexesNotUsed;
         }
         
         
-        
-        
-        public List<int> RollDice(List<int> args)
+        public List<int> RollDice(List<int> newList, List<int> indexesNotRolled)
         {
-            List<int> dices = new List<int>();
+            /*List<int> dices = new List<int>();
             Random rolledNumbers = new Random();
-            int randomNum = rolledNumbers.Next(1, 7);
+            int randomNum = rolledNumbers.Next();
             dices.Add(randomNum);
-            return dices;
+            return dices;*/
+            return new List<int>();
         }
 
+        
+        
+        
         public int CalculateSum(List<int> dices)
         {
             int sum = 0;
@@ -162,7 +173,7 @@ namespace YatzyKata
     
     public interface IRandom
     {
-        public int Next(int min, int max);
+        public int Next();
     }
 
     public class Rng : IRandom
@@ -171,9 +182,9 @@ namespace YatzyKata
         public Rng(){ 
             _randomNumberGenerator = new Random();
         }
-        public int Next(int min, int max)
+        public int Next()
         {
-            return _randomNumberGenerator.Next(min, max);
+            return _randomNumberGenerator.Next(1, 7);
         }
     }
     
