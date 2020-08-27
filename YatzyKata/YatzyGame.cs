@@ -10,7 +10,7 @@ namespace YatzyKata
         IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
         private IRandom _randomNumberGenerator;
         
-        public static int Main(string[] args)
+        public static void Main(string[] args)
         {
             //YatzyGame player = new YatzyGame(new ConsoleActions());
             IConsole consoleActions = new ConsoleActions();
@@ -24,28 +24,59 @@ namespace YatzyKata
             List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
             PrintList(newList);
             //CHECK IF USER HAS CALLED THIS ^^ METHOD 3 TIMES ONLY
-            Console.WriteLine("Would you like to re-roll (Y/N)?");
-            string userOption = Console.ReadLine();
-            List<int> indexesNotRolled = new List<int>();
-            //List<int> rerolledList = new List<int>();
-            int totalScore = 0;
-            if (userOption == "Y")
-            {
-                indexesNotRolled = player.DetermineIndexesNotKept(newList);
-                newList = player.RollDice(newList, indexesNotRolled);
-            }
             
-            else
+            // Console.WriteLine("Would you like to re-roll (Y/N)?");
+            // string userOption = Console.ReadLine();
+            List<int> indexesNotRolled = new List<int>();
+            List<int> reRolledNumbers = new List<int>();
+            
+            int totalScore = 0;
+            int noOfTimesRolled = 0;
+            while (noOfTimesRolled < 3)
             {
-                totalScore = player.CalculateSum(newList);
+                Console.WriteLine("Would you like to re-roll (Y/N)?");
+                string userOption = Console.ReadLine();
+                if (userOption == "Y")
+                {
+                    if (noOfTimesRolled > 0)
+                    {
+                        userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
+                        keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
+                        newList = player.KeepIndexesSpecifiedByUser(keepIndexes, newList);
+                    }
+                    indexesNotRolled = player.DetermineIndexesNotKept(newList);
+                    reRolledNumbers = player.RollDice(newList, indexesNotRolled);
+                    List<int> afterRerolled = player.AfterReroll(newList, reRolledNumbers);
+                    PrintList(afterRerolled);
+                    noOfTimesRolled++;
+                }
+                else
+                {
+                    break;
+                }
             }
-
-            return totalScore;
-            //     Determine which indexes not selected
-            //     Go to RollDice(specific index, newList);
-            // else:
-            //     Go to CalculateSum(newList);
-
+            totalScore = player.CalculateSum(newList);
+            Console.WriteLine(totalScore);
+        }
+        
+        public List<int> AfterReroll(List<int> newList, List<int> reRolledNumbers)
+        {
+            List<int> afterRerolled = new List<int>() {0,0,0,0,0};
+            for(int i = 0; i < newList.Count; i++)
+            {
+                if (newList[i] != 0)
+                {
+                    afterRerolled[i] = newList[i];
+                }
+            }
+            for(int i = 0; i < reRolledNumbers.Count; i++)
+            {
+                if (reRolledNumbers[i] != 0)
+                {
+                    afterRerolled[i] = reRolledNumbers[i];
+                }
+            }
+            return afterRerolled;
         }
 
         private static void PrintList(List<int> listToPrint)
@@ -84,13 +115,16 @@ namespace YatzyKata
             _newConsole.Write(
                 "Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
             string heldNumbers = _newConsole.ReadLine();
-            // handle no commas
-            string[] eachNumToKeep = heldNumbers.Split(",");
+            string[] eachNumToKeep = {heldNumbers};
+            //if more than 1 index to keep:
+            if (heldNumbers.Contains(","))
+            {
+                eachNumToKeep = heldNumbers.Split(",");
+            }
             return eachNumToKeep;
-            
         }
 
-        public List<int> IndexesToKeepAsInt(string[] eachNumToKeep)
+        public List<int> IndexesToKeepAsInt(string[] each NumToKeep)
         {
             List<int> userInputToInt = new List<int>();;
             int number = 0;
@@ -153,7 +187,7 @@ namespace YatzyKata
     }
 
 
-//Interfaces don't need a class
+//Interfaces don't need to be in a class
     public interface IConsole
     {
         public string ReadLine();
