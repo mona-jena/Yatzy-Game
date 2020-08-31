@@ -19,11 +19,7 @@ namespace YatzyKata
 
             List<int> diceList = player.GenerateFiveNumbers();
             PrintList(diceList);
-            // string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
-            // List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
-            // List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
-            // PrintList(newList);
-            //List<int> newList = new List<int>();
+
             List<int> indexesNotRolled = new List<int>();
             List<int> reRolledNumbers = new List<int>();
             int totalScore = 0;
@@ -34,23 +30,23 @@ namespace YatzyKata
                 string userOption = Console.ReadLine();
                 if (userOption == "Y")
                 {
-                    //RerollAgain(noOfTimesReRolled, newList, player, fiveNumbers);
-                    // if (noOfTimesReRolled > 0)
-                    // {
                     string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
                     List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
                     diceList = player.KeepIndexesSpecifiedByUser(keepIndexes, diceList);
                     PrintList(diceList);
-                    //}
                     indexesNotRolled = player.DetermineIndexesNotKept(diceList);
                     reRolledNumbers = player.RollDice(diceList, indexesNotRolled);
                     List<int> afterRerolled = player.AfterReRoll(diceList, reRolledNumbers);
                     PrintList(afterRerolled);
                     noOfTimesReRolled++;
                 }
-                else
+                else if (userOption == "N")
                 {
                     break;
+                }
+                else
+                {
+                    Console.WriteLine("I think you mistyped, please enter again.");
                 }
             }
             totalScore = player.CalculateSum(diceList);
