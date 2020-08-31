@@ -17,13 +17,13 @@ namespace YatzyKata
             IRandom random = new Rng();
             YatzyGame player = new YatzyGame(consoleActions, random);
 
-            List<int> fiveNumbers = player.GenerateFiveNumbers();
-            PrintList(fiveNumbers);
-            string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
-            List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
-            List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
-            PrintList(newList);
-            
+            List<int> diceList = player.GenerateFiveNumbers();
+            PrintList(diceList);
+            // string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
+            // List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
+            // List<int> newList = player.KeepIndexesSpecifiedByUser(keepIndexes, fiveNumbers);
+            // PrintList(newList);
+            //List<int> newList = new List<int>();
             List<int> indexesNotRolled = new List<int>();
             List<int> reRolledNumbers = new List<int>();
             int totalScore = 0;
@@ -34,16 +34,17 @@ namespace YatzyKata
                 string userOption = Console.ReadLine();
                 if (userOption == "Y")
                 {
-                    if (noOfTimesReRolled > 0)
-                    {
-                        userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
-                        keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
-                        newList = player.KeepIndexesSpecifiedByUser(keepIndexes, newList);
-                    }
-                    indexesNotRolled = player.DetermineIndexesNotKept(newList);
-                    //ADD ==> only allow user to pick the indexes not yet kept --> maybe give user option from indexesNotRolled??
-                    reRolledNumbers = player.RollDice(newList, indexesNotRolled);
-                    List<int> afterRerolled = player.AfterReRoll(newList, reRolledNumbers);
+                    //RerollAgain(noOfTimesReRolled, newList, player, fiveNumbers);
+                    // if (noOfTimesReRolled > 0)
+                    // {
+                    string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
+                    List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
+                    diceList = player.KeepIndexesSpecifiedByUser(keepIndexes, diceList);
+                    PrintList(diceList);
+                    //}
+                    indexesNotRolled = player.DetermineIndexesNotKept(diceList);
+                    reRolledNumbers = player.RollDice(diceList, indexesNotRolled);
+                    List<int> afterRerolled = player.AfterReRoll(diceList, reRolledNumbers);
                     PrintList(afterRerolled);
                     noOfTimesReRolled++;
                 }
@@ -52,9 +53,24 @@ namespace YatzyKata
                     break;
                 }
             }
-            totalScore = player.CalculateSum(newList);
+            totalScore = player.CalculateSum(diceList);
             Console.WriteLine("Your Score: " + totalScore);
         }
+
+        /*public static void RerollAgain(int noOfTimesReRolled, List<int> newList, YatzyGame player, List<int> fiveNumbers)
+        {
+            string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
+            List<int> keepIndexes = player.IndexesToKeepAsInt(userSpecifiedIndexes);
+            diceList = player.KeepIndexesSpecifiedByUser(keepIndexes, diceList);
+            PrintList(diceList);
+            //}
+            indexesNotRolled = player.DetermineIndexesNotKept(diceList);
+            reRolledNumbers = player.RollDice(diceList, indexesNotRolled);
+            List<int> afterRerolled = player.AfterReRoll(diceList, reRolledNumbers);
+            PrintList(afterRerolled);
+            noOfTimesReRolled++;
+        }*/
+            
         
         public List<int> AfterReRoll(List<int> newList, List<int> reRolledNumbers)
         {
@@ -108,7 +124,7 @@ namespace YatzyKata
         public string[] GetIndexesUserWantsToKeep()
         {
             _newConsole.Write(
-                "Which numbers would you like to keep? Please write the index of number you want to keep eg 1,2,3 to keep first 3 index");
+                "Which indexes would you like to keep between 1-5? To keep first three numbers/indexes, please write 1,2,3. ");
             string heldNumbers = _newConsole.ReadLine();
             string[] eachNumToKeep = {heldNumbers};
             //if more than 1 index to keep:

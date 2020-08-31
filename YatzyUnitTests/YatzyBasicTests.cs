@@ -110,6 +110,7 @@ namespace YatzyUnitTests
             List<int> result = player.AfterReRoll(newList, reRolledNumbers);
             Assert.Equal(expected, result);
         }
+        
 
     }
 
