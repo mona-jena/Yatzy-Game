@@ -45,11 +45,11 @@ namespace YatzyUnitTests
             string[] eachNumToKeep = {"1", "2", "3"};
             int[] expected = {1,2,3};
             YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
-            List<int> result = player.IndexesToKeepAsInt(eachNumToKeep);
+            List<int> result = player.ConvertUserStringToInt(eachNumToKeep);
             Assert.Equal(expected, result);
         }
         
-        [Fact]
+        /*[Fact]
         public void TestIfIndexesNotSpecifiedByUserIsRemoved()
         {
             
@@ -60,9 +60,9 @@ namespace YatzyUnitTests
             YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
             List<int> result = player.KeepIndexesSpecifiedByUser(eachNumToKeepAsInt, testOfFiveNumbers);
             Assert.Equal(expected, result);
-        }
+        }*/
 
-        [Fact]
+        /*[Fact]
         public void TestIfDetermineIndexesNotKeptReturnsCorrectList()
         {
             List<int> testList = new List<int>() {0, 3, 0, 0, 6};
@@ -70,9 +70,9 @@ namespace YatzyUnitTests
             YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
             List<int> result = player.DetermineIndexesNotKept(testList);
             Assert.Equal(expected, result);
-        }
+        }*/
         
-        [Fact]
+        /*[Fact]
         public void TestIfRollDicesReplacesNonUsedIndexes()
         {
             var rngMock = new Mock<IRandom>();
@@ -88,7 +88,7 @@ namespace YatzyUnitTests
             YatzyGame player = new YatzyGame(new ConsoleActions(), rngMock.Object); //pass in Rng Object
             List<int> result = player.RollDice(testList, indexesNotRolled);
             Assert.Equal(expected, result);
-        }
+        }*/
 
         [Fact]
         public void TestToSeeIfCalculateSumReturnsSum()
@@ -100,7 +100,7 @@ namespace YatzyUnitTests
             Assert.Equal(expected, result);
         }
 
-        [Fact]
+        /*[Fact]
         public void TestToAfterReRollMakesAUnionOfTwoLists()
         {
             List<int> newList = new List<int>() {0, 4, 0, 5, 0};
@@ -109,9 +109,26 @@ namespace YatzyUnitTests
             YatzyGame player = new YatzyGame(new ConsoleActions(), new Rng());
             List<int> result = player.AfterReRoll(newList, reRolledNumbers);
             Assert.Equal(expected, result);
-        }
-        
+        }*/
 
+        [Fact]
+        public void TestIfCreateListRollsDiceForIndexesNotSpecifiedByUser()
+        {
+            var rngMock = new Mock<IRandom>();
+            rngMock.SetupSequence(s => s.Next())
+                .Returns(4) //what random num should .Next() return 
+                .Returns(5)
+                .Returns(3);
+            
+            List<int> fiveNumbers = new List<int>() {3, 6, 2, 1, 5};
+            List<int> keepIndexes = new List<int>() {3, 5};
+            List<int> expected = new List<int>() {4, 5, 2, 3, 5};
+            
+            YatzyGame player = new YatzyGame(new ConsoleActions(), rngMock.Object); //pass in Rng Object
+            List<int> result = player.Reroll(fiveNumbers, keepIndexes);
+            Assert.Equal(expected, result);
+            
+        }
     }
 
 
