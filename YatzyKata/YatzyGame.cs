@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace YatzyKata
 {
@@ -9,20 +10,34 @@ namespace YatzyKata
     {
         IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
         private IRandom _randomNumberGenerator;
-        
+        private List<int> _diceList1;
+        private List<int> _diceList2;
+
         public static void Main(string[] args)
         {
             //YatzyGame player = new YatzyGame(new ConsoleActions());
+            
             IConsole consoleActions = new ConsoleActions();
             IRandom random = new Rng();
-            YatzyGame player = new YatzyGame(consoleActions, random);
+            Player player1 = new Player();
+            List<int> diceList1 = player1.GenerateFiveNumbers();
+            PrintList(diceList1);
+            
+            Player player2 = new Player();
+            List<int> diceList2 = player2.GenerateFiveNumbers();
+            YatzyGame yatzyGame = new YatzyGame(consoleActions, random, diceList1, diceList2);
+            PrintList(diceList2);
+        }
+        
+        public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> diceList1, List<int> diceList2) {
+            _randomNumberGenerator = randomNumberGenerator;
+            _newConsole = console;
+            _diceList1 = diceList1;
+            _diceList2 = diceList2;
+        }
 
-            List<int> diceList = player.GenerateFiveNumbers();
-            PrintList(diceList);
-
-            // List<int> indexesNotRolled = new List<int>();
-            // List<int> reRolledNumbers = new List<int>();
-            List<int> keepIndexes = new List<int>();
+        public void PlayerSum()
+        {
             int totalScore = 0;
             int noOfTimesReRolled = 0;
             while (noOfTimesReRolled < 3)
@@ -31,16 +46,11 @@ namespace YatzyKata
                 string userOption = Console.ReadLine();
                 if (userOption == "Y")
                 {
-                     string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
-                     keepIndexes = player.ConvertUserStringToInt(userSpecifiedIndexes);
-                     diceList = player.Reroll(diceList, keepIndexes);
-                     // diceList = player.KeepIndexesSpecifiedByUser(keepIndexes, diceList);
-                     // PrintList(diceList);
-                     // indexesNotRolled = player.DetermineIndexesNotKept(diceList);
-                     // reRolledNumbers = player.RollDice(diceList, indexesNotRolled);
-                     // List<int> afterRerolled = player.AfterReRoll(diceList, reRolledNumbers);
-                      PrintList(diceList);
-                      noOfTimesReRolled++;
+                    string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
+                    List<int> keepIndexes = player.ConvertUserStringToInt(userSpecifiedIndexes);
+                    diceList = player.Reroll(diceList, keepIndexes);
+                    PrintList(diceList);
+                    noOfTimesReRolled++;
                 }
                 else if (userOption == "N")
                 {
@@ -55,28 +65,12 @@ namespace YatzyKata
             Console.WriteLine("Your Score: " + totalScore);
         }
         
-        public YatzyGame(IConsole console, IRandom randomNumberGenerator) {
-            _randomNumberGenerator = randomNumberGenerator;
-            _newConsole = console;
-        }
-        
-        public List<int> GenerateFiveNumbers()
-        {
-            List<int> dices = new List<int>();
-            for (int i = 0; i < 5; i++)
-            {
-                int newNum = _randomNumberGenerator.Next();
-                dices.Add(newNum);
-            }
-            return dices;
-        }
-        
         public string[] GetIndexesUserWantsToKeep()
         {
             _newConsole.Write(
-                "Which indexes would you like to keep between 1-5? To keep first three numbers/indexes, please write 1,2,3. ");
+                "Which indexes would you like to keep between 1-5? (To keep first three numbers/indexes, please write 1,2,3 with indexes seperated by commas.) ");
             string heldNumbers = _newConsole.ReadLine();
-            string[] eachNumToKeep = {heldNumbers};
+            string[] eachNumToKeep = {};
             //if more than 1 index to keep:
             if (heldNumbers.Contains(","))
             {
@@ -104,13 +98,11 @@ namespace YatzyKata
         {
             for (int i = 1; i <= diceList.Count; i++)             //dice rolls start at 1
             {
-                //int j = i - 1;
                 if (!keepIndexes.Contains(i))
                 {
                     diceList[i-1] = DiceRoll();                  
                 }
             }
-
             return diceList;
         }
 
@@ -142,106 +134,6 @@ namespace YatzyKata
             }
             Console.WriteLine(")");
         }
-        
-        
-        
-        
-        
-        
-        /*public List<int> AfterReRoll(List<int> newList, List<int> reRolledNumbers)
-        {
-            List<int> afterRerolled = new List<int>() {0,0,0,0,0};
-            for (int i = 0; i < afterRerolled.Count; i++)
-            {
-                if (newList[i] != 0)
-                {
-                    afterRerolled[i] = newList[i];
-                }
-
-                if (reRolledNumbers[i] != 0)
-                {
-                    afterRerolled[i] = reRolledNumbers[i];
-                }
-            }
-
-            return afterRerolled;
-        }
-        */
-
-        /*public List<int> KeepIndexesSpecifiedByUser(List<int> userInputToInt, List<int> fiveNumbers)
-        {
-            List<int> userPreferredList = new List<int>() {0,0,0,0,0};
-            foreach (int i in userInputToInt)
-            {
-                userPreferredList[i-1] = fiveNumbers[i-1];
-            }
-            return userPreferredList;
-        }
-        
-        public List<int> DetermineIndexesNotKept(List<int> newList)
-        {
-            List<int> indexesNotUsed = new List<int>();
-            for(int i = 0; i < newList.Count; i++)
-            {
-                if (newList[i] == 0)
-                {
-                    indexesNotUsed.Add(i);
-                }
-            }
-            return indexesNotUsed;
-        }
-        
-        
-        public List<int> RollDice(List<int> newList, List<int> indexesNotRolled)
-        {
-            List<int> rerolledList = newList;
-            foreach (int i in indexesNotRolled)
-            {
-                int newNum = _randomNumberGenerator.Next();
-                newList[i] = newNum;
-            }
-            return rerolledList;
-        }*/
     }
 
-
-//Interfaces don't need to be in a class
-    public interface IConsole
-    {
-        public string ReadLine();
-
-        public void Write(string message);
-    }
-
-    public class ConsoleActions : IConsole
-    {
-        public string ReadLine()
-        {
-            return Console.ReadLine();
-        }
-
-        public void Write(string message)
-        {
-            Console.WriteLine(message);
-        }
-    }
-    
-    
-    public interface IRandom
-    {
-        public int Next();
-    }
-
-    public class Rng : IRandom
-    {
-        private Random _randomNumberGenerator; //Random class needs an object - declared here so that Next() can access it too 
-        public Rng(){ 
-            _randomNumberGenerator = new Random();
-        }
-        public int Next()
-        {
-            return _randomNumberGenerator.Next(1, 7);
-        }
-    }
-    
 }

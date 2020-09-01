@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+    "projectUniqueName": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
     "projectName": "YatzyKata",
-    "projectPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
-    "outputPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/",
+    "projectPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+    "outputPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/obj/",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "netcoreapp3.1"

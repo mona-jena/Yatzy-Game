@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {}
+    "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {}
   },
   "projects": {
-    "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {
+    "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+        "projectUniqueName": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
         "projectName": "YatzyKata",
-        "projectPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+        "projectPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
         "packagesPath": "/Users/Mona.Jena/.nuget/packages/",
-        "outputPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/",
+        "outputPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Mona.Jena/.nuget/NuGet/NuGet.Config"
