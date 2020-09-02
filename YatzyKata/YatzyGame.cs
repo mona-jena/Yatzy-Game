@@ -8,7 +8,9 @@ namespace YatzyKata
 
     public class YatzyGame
     {
-        IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
+        IConsole
+            _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
+
         private static IRandom _randomNumberGenerator;
         private List<int> _diceList1;
         private List<int> _diceList2;
@@ -20,27 +22,36 @@ namespace YatzyKata
             IRandom random = new Rng();
             Player player1 = new Player();
             List<int> player1DiceList = player1.GenerateFiveNumbers(random);
-            
+
             Player player2 = new Player();
             List<int> player2DiceList = player2.GenerateFiveNumbers(random);
 
             YatzyGame yatzyGame = new YatzyGame(consoleActions, random, player1DiceList, player2DiceList);
-            Console.WriteLine("######### START YATZY GAME #########");
-            Console.WriteLine("Player 1 now it's your turn.");
-            Console.Write("Player 1 ");
+            Console.WriteLine("The aim of this game is to roll your 5 dice to get the highest sum. You can only re-roll upto 3 times. ");
+            System.Threading.Thread.Sleep(2000);
+            Console.WriteLine("######### STARTING YATZY GAME #########");
+            System.Threading.Thread.Sleep(2000);
+            Console.WriteLine("\n### Player 1 it's your turn. ###");
+            System.Threading.Thread.Sleep(1000);
             PrintList(player1DiceList);
+            System.Threading.Thread.Sleep(2000);
             int player1Score = yatzyGame.PlayerSum(player1DiceList);
             
-            Console.WriteLine("PLayer 2 now it's your turn.");
-            Console.Write("Player 2 ");
+            System.Threading.Thread.Sleep(300);
+            Console.WriteLine("### PLayer 2 it's your turn. ###");
+            System.Threading.Thread.Sleep(1000);
             PrintList(player2DiceList);
+            System.Threading.Thread.Sleep(2000);
             int player2Score = yatzyGame.PlayerSum(player2DiceList);
-            
+
             Console.WriteLine(yatzyGame.Winner(player1Score, player2Score));
+            System.Threading.Thread.Sleep(500);
             Console.WriteLine("######### GAME OVER #########");
         }
-        
-        public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> player1DiceList, List<int> player2DiceList) {
+
+        public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> player1DiceList,
+            List<int> player2DiceList)
+        {
             _randomNumberGenerator = randomNumberGenerator;
             _newConsole = console;
             _diceList1 = player1DiceList;
@@ -53,12 +64,16 @@ namespace YatzyKata
             {
                 return "Player 1 Wins!!!";
             }
-            else
+            else if (player2Score > player1Score)
             {
                 return "Player 2 Wins!!!";
             }
+            else
+            {
+                return "It's a draw!";
+            }
         }
-        
+
         public int PlayerSum(List<int> playerDiceList)
         {
             int totalScore = 0;
@@ -72,7 +87,10 @@ namespace YatzyKata
                     string[] userSpecifiedIndexes = GetIndexesUserWantsToKeep();
                     List<int> keepIndexes = ConvertUserStringToInt(userSpecifiedIndexes);
                     playerDiceList = Reroll(playerDiceList, keepIndexes);
+                    Console.WriteLine();
+                    System.Threading.Thread.Sleep(2000);
                     PrintList(playerDiceList);
+                    System.Threading.Thread.Sleep(1000);
                     noOfTimesReRolled++;
                 }
                 else if (userOption == "N")
@@ -84,15 +102,20 @@ namespace YatzyKata
                     Console.WriteLine("I think you mistyped, please enter again.");
                 }
             }
+
             totalScore = CalculateSum(playerDiceList);
-            Console.WriteLine("Your Score: " + totalScore + "\n");
+            Console.Write("--------------\nYour Score: ");
+            System.Threading.Thread.Sleep(1000);
+            Console.WriteLine(totalScore + "\n");
+            System.Threading.Thread.Sleep(2000);
             return totalScore;
         }
-        
+
         public string[] GetIndexesUserWantsToKeep()
         {
             _newConsole.Write(
-                "Which indexes would you like to keep between 1-5? (To keep first three numbers/indexes, please write 1,2,3 with indexes seperated by commas.) ");
+                "Which indexes would you like to keep between 1-5? Must keep atleast one index.\n" +
+                "(To keep first three numbers/indexes, please write 1,2,3 with indexes seperated by commas.) ");
             string heldNumbers = _newConsole.ReadLine();
             string[] eachNumToKeep = {heldNumbers};
             //if more than 1 index to keep:
@@ -100,12 +123,14 @@ namespace YatzyKata
             {
                 eachNumToKeep = heldNumbers.Split(",");
             }
+
             return eachNumToKeep;
         }
 
         public List<int> ConvertUserStringToInt(string[] eachNumToKeep)
         {
-            List<int> userInputToInt = new List<int>();;
+            List<int> userInputToInt = new List<int>();
+            ;
             int number = 0;
             for (int i = 0; i < eachNumToKeep.Length; i++)
             {
@@ -115,18 +140,20 @@ namespace YatzyKata
                     userInputToInt.Add(number);
                 }
             }
+
             return userInputToInt;
         }
 
         public List<int> Reroll(List<int> diceList, List<int> keepIndexes)
         {
-            for (int i = 1; i <= diceList.Count; i++)             //dice rolls start at 1
+            for (int i = 1; i <= diceList.Count; i++) //dice rolls start at 1
             {
                 if (!keepIndexes.Contains(i))
                 {
-                    diceList[i-1] = DiceRoll();                  
+                    diceList[i - 1] = DiceRoll();
                 }
             }
+
             return diceList;
         }
 
@@ -134,7 +161,7 @@ namespace YatzyKata
         {
             return _randomNumberGenerator.Next();
         }
-        
+
         public int CalculateSum(List<int> dices)
         {
             int sum = 0;
@@ -142,22 +169,23 @@ namespace YatzyKata
             {
                 sum += item;
             }
+
             return sum;
         }
 
         private static void PrintList(List<int> listToPrint)
         {
-            Console.Write("Current List: (");
-            for(int i=0; i < listToPrint.Count ; i++)
+            Console.Write("Rolled Dice: (");
+            for (int i = 0; i < listToPrint.Count; i++)
             {
                 Console.Write(listToPrint[i]);
-                if (i != listToPrint.Count-1)
+                if (i != listToPrint.Count - 1)
                 {
                     Console.Write(",");
                 }
             }
+
             Console.WriteLine(")");
         }
     }
-
 }
