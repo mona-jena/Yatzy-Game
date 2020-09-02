@@ -8,9 +8,7 @@ namespace YatzyKata
 
     public class YatzyGame
     {
-        IConsole
-            _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
-
+        IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
         private static IRandom _randomNumberGenerator;
         private List<int> _diceList1;
         private List<int> _diceList2;
@@ -27,7 +25,7 @@ namespace YatzyKata
             List<int> player2DiceList = player2.GenerateFiveNumbers(random);
 
             YatzyGame yatzyGame = new YatzyGame(consoleActions, random, player1DiceList, player2DiceList);
-            Console.WriteLine("The aim of this game is to roll your 5 dice to get the highest sum. You can only re-roll upto 3 times. ");
+            Console.WriteLine("The aim of this game is to roll your 5 dice to get the highest sum. Each player can only re-roll upto 3 times. ");
             System.Threading.Thread.Sleep(2000);
             Console.WriteLine("######### STARTING YATZY GAME #########");
             System.Threading.Thread.Sleep(2000);
@@ -38,7 +36,7 @@ namespace YatzyKata
             int player1Score = yatzyGame.PlayerSum(player1DiceList);
             
             System.Threading.Thread.Sleep(300);
-            Console.WriteLine("### PLayer 2 it's your turn. ###");
+            Console.WriteLine("### PLayer 2 now it's your turn. ###");
             System.Threading.Thread.Sleep(1000);
             PrintList(player2DiceList);
             System.Threading.Thread.Sleep(2000);
@@ -46,7 +44,7 @@ namespace YatzyKata
 
             Console.WriteLine(yatzyGame.Winner(player1Score, player2Score));
             System.Threading.Thread.Sleep(500);
-            Console.WriteLine("######### GAME OVER #########");
+            Console.WriteLine("\n######### GAME OVER #########");
         }
 
         public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> player1DiceList,
@@ -56,22 +54,6 @@ namespace YatzyKata
             _newConsole = console;
             _diceList1 = player1DiceList;
             _diceList2 = player2DiceList;
-        }
-
-        public string Winner(int player1Score, int player2Score)
-        {
-            if (player1Score > player2Score)
-            {
-                return "Player 1 Wins!!!";
-            }
-            else if (player2Score > player1Score)
-            {
-                return "Player 2 Wins!!!";
-            }
-            else
-            {
-                return "It's a draw!";
-            }
         }
 
         public int PlayerSum(List<int> playerDiceList)
@@ -114,8 +96,8 @@ namespace YatzyKata
         public string[] GetIndexesUserWantsToKeep()
         {
             _newConsole.Write(
-                "Which indexes would you like to keep between 1-5? Must keep atleast one index.\n" +
-                "(To keep first three numbers/indexes, please write 1,2,3 with indexes seperated by commas.) ");
+                "Which die would you like to keep between 1-5? Must keep atleast one die.\n" +
+                "(To keep first three die, please write 1,2,3 with die indexes seperated by commas.) ");
             string heldNumbers = _newConsole.ReadLine();
             string[] eachNumToKeep = {heldNumbers};
             //if more than 1 index to keep:
@@ -186,6 +168,22 @@ namespace YatzyKata
             }
 
             Console.WriteLine(")");
+        }
+        
+        public string Winner(int player1Score, int player2Score)
+        {
+            if (player1Score > player2Score)
+            {
+                return "Player 1 Wins!!!";
+            }
+            else if (player2Score > player1Score)
+            {
+                return "Player 2 Wins!!!";
+            }
+            else
+            {
+                return "It's a draw!";
+            }
         }
     }
 }

@@ -11,7 +11,7 @@ namespace YatzyUnitTests
         [Fact]
         public void TestIfKeepNumPutsNumbersSpecifiedByUserInAnArray()
         {
-            //write a test for 1 index
+            //WRITE A TEST FOR 1 INDEX
             List<int> player1DiceList = new List<int>() {3, 4, 5, 5, 2};
             List<int> player2DiceList = new List<int>() {5, 2, 3, 2, 1};
             var consoleActionsMock = new Mock<IConsole>();
