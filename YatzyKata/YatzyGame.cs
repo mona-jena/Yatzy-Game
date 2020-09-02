@@ -16,20 +16,28 @@ namespace YatzyKata
         public static void Main(string[] args)
         {
             //YatzyGame player = new YatzyGame(new ConsoleActions());
-            
             IConsole consoleActions = new ConsoleActions();
             IRandom random = new Rng();
             Player player1 = new Player();
             List<int> player1DiceList = player1.GenerateFiveNumbers(random);
-            PrintList(player1DiceList);
             
             Player player2 = new Player();
             List<int> player2DiceList = player2.GenerateFiveNumbers(random);
-            PrintList(player2DiceList);
-            
+
             YatzyGame yatzyGame = new YatzyGame(consoleActions, random, player1DiceList, player2DiceList);
-            yatzyGame.PlayerSum(player1DiceList);
-            yatzyGame.PlayerSum(player2DiceList);
+            Console.WriteLine("######### START YATZY GAME #########");
+            Console.WriteLine("Player 1 now it's your turn.");
+            Console.Write("Player 1 ");
+            PrintList(player1DiceList);
+            int player1Score = yatzyGame.PlayerSum(player1DiceList);
+            
+            Console.WriteLine("PLayer 2 now it's your turn.");
+            Console.Write("Player 2 ");
+            PrintList(player2DiceList);
+            int player2Score = yatzyGame.PlayerSum(player2DiceList);
+            
+            Console.WriteLine(yatzyGame.Winner(player1Score, player2Score));
+            Console.WriteLine("######### GAME OVER #########");
         }
         
         public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> player1DiceList, List<int> player2DiceList) {
@@ -39,7 +47,19 @@ namespace YatzyKata
             _diceList2 = player2DiceList;
         }
 
-        public void PlayerSum(List<int> playerDiceList)
+        public string Winner(int player1Score, int player2Score)
+        {
+            if (player1Score > player2Score)
+            {
+                return "Player 1 Wins!!!";
+            }
+            else
+            {
+                return "Player 2 Wins!!!";
+            }
+        }
+        
+        public int PlayerSum(List<int> playerDiceList)
         {
             int totalScore = 0;
             int noOfTimesReRolled = 0;
@@ -65,7 +85,8 @@ namespace YatzyKata
                 }
             }
             totalScore = CalculateSum(playerDiceList);
-            Console.WriteLine("Your Score: " + totalScore);
+            Console.WriteLine("Your Score: " + totalScore + "\n");
+            return totalScore;
         }
         
         public string[] GetIndexesUserWantsToKeep()

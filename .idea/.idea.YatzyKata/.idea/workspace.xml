@@ -23,38 +23,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f9fce551-8784-4256-98fd-9cf82902aaac" name="Default Changelist" comment="simplified logic by adding Reroll() and removing unnecessary methods">
-      <change afterPath="$PROJECT_DIR$/YatzyUnitTests/PlayerTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.YatzyKata/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YatzyKata/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="f9fce551-8784-4256-98fd-9cf82902aaac" name="Default Changelist" comment="passes all test for 2 player game">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.YatzyKata/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.YatzyKata/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyKata.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyKata/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/Player.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyKata/YatzyGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/YatzyGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.dll" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/bin/Debug/netcoreapp3.1/YatzyKata.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.dll" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/obj/Debug/netcoreapp3.1/YatzyKata.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyKata/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyKata/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/YatzyBasicTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/YatzyBasicTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/YatzyUnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/YatzyUnitTests.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyKata.dll" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyKata.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyKata.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyKata.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyUnitTests.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyUnitTests.deps.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyUnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyUnitTests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyUnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/bin/Debug/netcoreapp3.1/YatzyUnitTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.csprojAssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.csprojAssemblyReference.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.dll" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.dll" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/YatzyUnitTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/YatzyUnitTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/YatzyUnitTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/YatzyUnitTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +143,7 @@
       <workItem from="1598491454846" duration="28381000" />
       <workItem from="1598566676076" duration="3719000" />
       <workItem from="1598666894054" duration="3013000" />
-      <workItem from="1598830218181" duration="33660000" />
+      <workItem from="1598830218181" duration="37383000" />
     </task>
     <task id="LOCAL-00001" summary="made some change">
       <created>1597937894930</created>
@@ -281,7 +264,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598877589182</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="passes all test for 2 player game">
+      <created>1599011974720</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1599011974720</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,18 +286,18 @@
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 68% 58/181" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 67% 68/207" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 68% 58/181" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="YatzyKata 57% 58/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 67% 68/207" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="YatzyKata 55% 68/150" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 68% 58/181" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="YatzyKata 57% 58/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="YatzyKata 57% 58/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 67% 68/207" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="YatzyKata 55% 68/150" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="YatzyKata 55% 68/150" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -346,37 +336,38 @@
     <MESSAGE value="applied same logic to all loops" />
     <MESSAGE value="added else statement" />
     <MESSAGE value="simplified logic by adding Reroll() and removing unnecessary methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="simplified logic by adding Reroll() and removing unnecessary methods" />
+    <MESSAGE value="passes all test for 2 player game" />
+    <option name="LAST_COMMIT_MESSAGE" value="passes all test for 2 player game" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1741" height="180" key="GridCell.Tab.0.bottom" timestamp="1599011660491">
+    <state width="1741" height="310" key="GridCell.Tab.0.bottom" timestamp="1599027297608">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1741" height="180" key="GridCell.Tab.0.bottom/0.23.1792.1017@0.23.1792.1017" timestamp="1599011660491" />
+    <state width="1741" height="310" key="GridCell.Tab.0.bottom/0.23.1792.1017@0.23.1792.1017" timestamp="1599027297608" />
     <state width="1741" height="181" key="GridCell.Tab.0.bottom/0.23.1792.1019@0.23.1792.1019" timestamp="1598932009402" />
     <state width="1437" height="148" key="GridCell.Tab.0.bottom/0.23.1792.1021@0.23.1792.1021" timestamp="1598530419692" />
     <state width="1657" height="148" key="GridCell.Tab.0.bottom/0.23.1792.1023@0.23.1792.1023" timestamp="1598460355076" />
     <state width="1657" height="148" key="GridCell.Tab.0.bottom/0.23.1792.1025@0.23.1792.1025" timestamp="1598421351712" />
-    <state width="1741" height="180" key="GridCell.Tab.0.center" timestamp="1599011660491">
+    <state width="1741" height="310" key="GridCell.Tab.0.center" timestamp="1599027297607">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1741" height="180" key="GridCell.Tab.0.center/0.23.1792.1017@0.23.1792.1017" timestamp="1599011660491" />
+    <state width="1741" height="310" key="GridCell.Tab.0.center/0.23.1792.1017@0.23.1792.1017" timestamp="1599027297607" />
     <state width="1741" height="181" key="GridCell.Tab.0.center/0.23.1792.1019@0.23.1792.1019" timestamp="1598932009402" />
     <state width="1437" height="148" key="GridCell.Tab.0.center/0.23.1792.1021@0.23.1792.1021" timestamp="1598530419691" />
     <state width="1657" height="148" key="GridCell.Tab.0.center/0.23.1792.1023@0.23.1792.1023" timestamp="1598460355075" />
     <state width="1657" height="148" key="GridCell.Tab.0.center/0.23.1792.1025@0.23.1792.1025" timestamp="1598421351711" />
-    <state width="1741" height="180" key="GridCell.Tab.0.left" timestamp="1599011660490">
+    <state width="1741" height="310" key="GridCell.Tab.0.left" timestamp="1599027297606">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1741" height="180" key="GridCell.Tab.0.left/0.23.1792.1017@0.23.1792.1017" timestamp="1599011660490" />
+    <state width="1741" height="310" key="GridCell.Tab.0.left/0.23.1792.1017@0.23.1792.1017" timestamp="1599027297606" />
     <state width="1741" height="181" key="GridCell.Tab.0.left/0.23.1792.1019@0.23.1792.1019" timestamp="1598932009401" />
     <state width="1437" height="148" key="GridCell.Tab.0.left/0.23.1792.1021@0.23.1792.1021" timestamp="1598530419691" />
     <state width="1657" height="148" key="GridCell.Tab.0.left/0.23.1792.1023@0.23.1792.1023" timestamp="1598460355073" />
     <state width="1657" height="148" key="GridCell.Tab.0.left/0.23.1792.1025@0.23.1792.1025" timestamp="1598421351710" />
-    <state width="1741" height="180" key="GridCell.Tab.0.right" timestamp="1599011660491">
+    <state width="1741" height="310" key="GridCell.Tab.0.right" timestamp="1599027297607">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1741" height="180" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1599011660491" />
+    <state width="1741" height="310" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1599027297607" />
     <state width="1741" height="181" key="GridCell.Tab.0.right/0.23.1792.1019@0.23.1792.1019" timestamp="1598932009402" />
     <state width="1437" height="148" key="GridCell.Tab.0.right/0.23.1792.1021@0.23.1792.1021" timestamp="1598530419692" />
     <state width="1657" height="148" key="GridCell.Tab.0.right/0.23.1792.1023@0.23.1792.1023" timestamp="1598460355075" />
@@ -520,10 +511,10 @@
     <state x="235" y="123" width="1457" height="774" key="VCS.FileHistoryDialog/0.23.1792.1021@0.23.1792.1021" timestamp="1598403701911" />
     <state x="235" y="123" width="1457" height="776" key="VCS.FileHistoryDialog/0.23.1792.1023@0.23.1792.1023" timestamp="1598406285167" />
     <state x="235" y="123" width="1457" height="777" key="VCS.FileHistoryDialog/0.23.1792.1025@0.23.1792.1025" timestamp="1598238783422" />
-    <state x="542" y="236" key="Vcs.Push.Dialog.v2" timestamp="1598877601461">
+    <state x="542" y="236" key="Vcs.Push.Dialog.v2" timestamp="1599011985014">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state x="542" y="236" key="Vcs.Push.Dialog.v2/0.23.1792.1017@0.23.1792.1017" timestamp="1598877601461" />
+    <state x="542" y="236" key="Vcs.Push.Dialog.v2/0.23.1792.1017@0.23.1792.1017" timestamp="1599011985014" />
     <state x="542" y="236" key="Vcs.Push.Dialog.v2/0.23.1792.1019@0.23.1792.1019" timestamp="1598566788300" />
     <state x="542" y="236" key="Vcs.Push.Dialog.v2/0.23.1792.1021@0.23.1792.1021" timestamp="1598527566435" />
     <state x="542" y="237" key="Vcs.Push.Dialog.v2/0.23.1792.1023@0.23.1792.1023" timestamp="1598459184660" />
@@ -551,29 +542,42 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/YatzyKata/YatzyGame.cs</url>
-          <line>48</line>
+          <line>68</line>
           <properties documentPath="$PROJECT_DIR$/YatzyKata/YatzyGame.cs" initialLine="47">
             <startOffsets>
-              <option value="1845" />
+              <option value="2582" />
             </startOffsets>
             <endOffsets>
-              <option value="1884" />
+              <option value="2621" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/YatzyKata/YatzyGame.cs</url>
-          <line>71</line>
+          <line>92</line>
           <properties documentPath="$PROJECT_DIR$/YatzyKata/YatzyGame.cs" initialLine="70">
             <startOffsets>
-              <option value="2749" />
+              <option value="3524" />
             </startOffsets>
             <endOffsets>
-              <option value="2750" />
+              <option value="3525" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/YatzyKata/YatzyGame.cs</url>
+          <line>38</line>
+          <properties documentPath="$PROJECT_DIR$/YatzyKata/YatzyGame.cs" initialLine="38">
+            <startOffsets>
+              <option value="1556" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1601" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
