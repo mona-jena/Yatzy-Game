@@ -5,9 +5,15 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0db77b4d_002D680d_002D482f_002D815c_002D6a5445473cdd/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from UnitTest1.cs #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;ProjectFile&gt;9D878FD4-53D0-4DD1-8BA7-4857ABE182A9/f:UnitTest1.cs&lt;/ProjectFile&gt;
 &lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=437e4dcf_002De51c_002D4929_002Dbe4e_002D357a930189f5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from Solution #6" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8744718e_002Dd396_002D4902_002D814c_002Daac62b173d3b/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from UnitTest1.cs #4" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;ProjectFile&gt;ACF12178-A2A3-4276-B216-7494B8F19D28/f:UnitTest1.cs&lt;/ProjectFile&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=885af049_002De1af_002D4354_002Db76b_002D5fbbf3faae06/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from UnitTest1.cs #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;ProjectFile&gt;ACF12178-A2A3-4276-B216-7494B8F19D28/f:UnitTest1.cs&lt;/ProjectFile&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=bd0b7d36_002D597e_002D4720_002Da70e_002Db6746227374f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestToSeeIfFiveNumbersGenerated #3" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

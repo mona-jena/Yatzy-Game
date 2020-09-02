@@ -96,3 +96,5 @@
 /Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.dll
 /Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.pdb
 /Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/obj/Debug/netcoreapp3.1/YatzyUnitTests.genruntimeconfig.cache
+/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/bin/Debug/netcoreapp3.1/Castle.Core.dll
+/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/bin/Debug/netcoreapp3.1/Moq.dll

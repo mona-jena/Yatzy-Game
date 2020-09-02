@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj": {}
+    "/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj": {}
   },
   "projects": {
-    "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {
+    "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+        "projectUniqueName": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
         "projectName": "YatzyKata",
-        "projectPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
+        "projectPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj",
         "packagesPath": "/Users/Mona.Jena/.nuget/packages/",
-        "outputPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/obj/",
+        "outputPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Mona.Jena/.nuget/NuGet/NuGet.Config"
@@ -64,14 +64,14 @@
         }
       }
     },
-    "/Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj": {
+    "/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj",
+        "projectUniqueName": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj",
         "projectName": "YatzyUnitTests",
-        "projectPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj",
+        "projectPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/YatzyUnitTests.csproj",
         "packagesPath": "/Users/Mona.Jena/.nuget/packages/",
-        "outputPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyUnitTests/obj/",
+        "outputPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyUnitTests/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/Mona.Jena/.nuget/NuGet/NuGet.Config"
@@ -85,8 +85,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {
-                "projectPath": "/Users/Mona.Jena/workspace/YatzyKata/YatzyKata/YatzyKata.csproj"
+              "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj": {
+                "projectPath": "/Users/Mona.Jena/Workspace/YatzyKata/YatzyKata/YatzyKata.csproj"
               }
             }
           }
@@ -103,6 +103,10 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.5.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.14.5, )"
             },
             "coverlet.collector": {
               "target": "Package",

@@ -9,7 +9,7 @@ namespace YatzyKata
     public class YatzyGame
     {
         IConsole _newConsole; //IConsole is the interface- contract and ConsoleActions() is the implementation of the interface- which has the methods
-        private IRandom _randomNumberGenerator;
+        private static IRandom _randomNumberGenerator;
         private List<int> _diceList1;
         private List<int> _diceList2;
 
@@ -20,23 +20,26 @@ namespace YatzyKata
             IConsole consoleActions = new ConsoleActions();
             IRandom random = new Rng();
             Player player1 = new Player();
-            List<int> diceList1 = player1.GenerateFiveNumbers();
-            PrintList(diceList1);
+            List<int> player1DiceList = player1.GenerateFiveNumbers(random);
+            PrintList(player1DiceList);
             
             Player player2 = new Player();
-            List<int> diceList2 = player2.GenerateFiveNumbers();
-            YatzyGame yatzyGame = new YatzyGame(consoleActions, random, diceList1, diceList2);
-            PrintList(diceList2);
+            List<int> player2DiceList = player2.GenerateFiveNumbers(random);
+            PrintList(player2DiceList);
+            
+            YatzyGame yatzyGame = new YatzyGame(consoleActions, random, player1DiceList, player2DiceList);
+            yatzyGame.PlayerSum(player1DiceList);
+            yatzyGame.PlayerSum(player2DiceList);
         }
         
-        public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> diceList1, List<int> diceList2) {
+        public YatzyGame(IConsole console, IRandom randomNumberGenerator, List<int> player1DiceList, List<int> player2DiceList) {
             _randomNumberGenerator = randomNumberGenerator;
             _newConsole = console;
-            _diceList1 = diceList1;
-            _diceList2 = diceList2;
+            _diceList1 = player1DiceList;
+            _diceList2 = player2DiceList;
         }
 
-        public void PlayerSum()
+        public void PlayerSum(List<int> playerDiceList)
         {
             int totalScore = 0;
             int noOfTimesReRolled = 0;
@@ -46,10 +49,10 @@ namespace YatzyKata
                 string userOption = Console.ReadLine();
                 if (userOption == "Y")
                 {
-                    string[] userSpecifiedIndexes = player.GetIndexesUserWantsToKeep();
-                    List<int> keepIndexes = player.ConvertUserStringToInt(userSpecifiedIndexes);
-                    diceList = player.Reroll(diceList, keepIndexes);
-                    PrintList(diceList);
+                    string[] userSpecifiedIndexes = GetIndexesUserWantsToKeep();
+                    List<int> keepIndexes = ConvertUserStringToInt(userSpecifiedIndexes);
+                    playerDiceList = Reroll(playerDiceList, keepIndexes);
+                    PrintList(playerDiceList);
                     noOfTimesReRolled++;
                 }
                 else if (userOption == "N")
@@ -61,7 +64,7 @@ namespace YatzyKata
                     Console.WriteLine("I think you mistyped, please enter again.");
                 }
             }
-            totalScore = player.CalculateSum(diceList);
+            totalScore = CalculateSum(playerDiceList);
             Console.WriteLine("Your Score: " + totalScore);
         }
         
@@ -70,7 +73,7 @@ namespace YatzyKata
             _newConsole.Write(
                 "Which indexes would you like to keep between 1-5? (To keep first three numbers/indexes, please write 1,2,3 with indexes seperated by commas.) ");
             string heldNumbers = _newConsole.ReadLine();
-            string[] eachNumToKeep = {};
+            string[] eachNumToKeep = {heldNumbers};
             //if more than 1 index to keep:
             if (heldNumbers.Contains(","))
             {
